@@ -4,3 +4,38 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 if [ -f "$HOME/.bash_local" ]; then
     . "$HOME/.bash_local"
 fi
+
+#######################################################
+# Eliot's git shortcuts
+#######################################################
+gr() {
+    git rebase -i HEAD~$1
+}
+
+alias grc="git rebase --continue"
+alias gca="git commit --amend"
+alias gcan="git commit --amend --no-edit"
+alias ga="git add -p"
+alias gpr="git pull --rebase origin master"
+
+#######################################################
+# Eliot's bash history stuff
+#######################################################
+# Increase the bash history size. To infinity and beyond.
+# https://stackoverflow.com/a/19533853
+# "...even if your history file grows to 10MB (which
+# will take a long, long time) you won't notice much of
+# an effect on your bash startup time."
+HISTSIZE=
+HISTFILESIZE=
+# Show the time when a command was executed in `history`.
+HISTTIMEFORMAT="[%F %T] "
+# When the shell exits, append to the history file
+# instead of overwriting it; this allows keeping history
+# from multiple terminal sessions that ran concurrently.
+shopt -s histappend
+# Append to bash history and reload immediately on every
+# command, so that history is not lost during an `ssh`
+# network disconnect. This additionally syncs bash
+# history between multiple concurrent term sessions.
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
