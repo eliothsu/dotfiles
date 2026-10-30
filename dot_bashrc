@@ -117,10 +117,10 @@ if ! shopt -oq posix; then
 fi
 
 # Created by `pipx` on 2024-09-28 22:27:03
-export PATH="$PATH:/home/eliothsu/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # pnpm
-export PNPM_HOME="/home/eliothsu/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -130,7 +130,7 @@ esac
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/home/eliothsu/.pixi/bin:$PATH"
+export PATH="$HOME/.pixi/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -141,5 +141,5 @@ if [ -f '/tmp/google-cloud-sdk/completion.bash.inc' ]; then . '/tmp/google-cloud
 
 
 # Added by Antigravity CLI installer
-export PATH="/home/eliothsu/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(mise activate bash)"
